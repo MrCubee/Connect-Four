@@ -1,0 +1,7 @@
+name: ConnectFour
+version: 1.0
+author: MrCubee
+main: fr.mrcubee.connectfour.bukkit.ConnectFour
+commands:
+  connectfour:
+    aliases: [cf]
