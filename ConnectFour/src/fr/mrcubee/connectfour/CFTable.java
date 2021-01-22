@@ -72,7 +72,7 @@ public class CFTable {
             return false;
         else if (power < 1)
             return true;
-        return isWin(playerId, vColumn * this.columns + index + vRow, vColumn, vRow, power - 1);
+        return isWin(playerId, vRow * this.columns + index + vColumn, vColumn, vRow, power - 1);
     }
 
     private boolean isWin(byte playerId, int index) {
