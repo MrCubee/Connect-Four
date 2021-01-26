@@ -11,13 +11,13 @@ public class CFTable {
     private final int rows;
     private final byte[] table;
 
-    private CFTable(int rows, int columns) {
+    protected CFTable(int rows, int columns) {
         this.rows = rows;
         this.columns = columns;
         this.table = new byte[rows * columns];
     }
 
-    private CFTable(CFTable table) {
+    protected CFTable(CFTable table) {
         this.columns = table.columns;
         this.rows = table.rows;
         this.table = table.table.clone();
@@ -110,8 +110,8 @@ public class CFTable {
         return true;
     }
 
-    protected byte[] getTable() {
-        return table;
+    public byte[] getTable() {
+        return this.table.clone();
     }
 
     @Override
