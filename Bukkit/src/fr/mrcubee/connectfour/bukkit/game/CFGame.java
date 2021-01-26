@@ -45,7 +45,7 @@ public class CFGame {
 
         if (this.cfTable.isFull() || this.cfTable.isWin((byte) 1) || this.cfTable.isWin((byte) 2))
             return;
-        index = cfTable.setPlayer(CFBot.getBestColumn(cfTable, 2, (byte) 2, (byte) 1), (byte) 2);
+        index = cfTable.setPlayer(CFBot.getBestColumn(cfTable, CFSettings.getSearchLevel(), (byte) 2, (byte) 1), (byte) 2);
         if (index < 0)
             return;
         y = index / cfTable.getColumns();

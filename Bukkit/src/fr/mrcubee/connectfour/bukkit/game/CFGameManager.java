@@ -91,4 +91,13 @@ public class CFGameManager {
         }
         return true;
     }
+
+    public boolean spectate(Player spectator, Player player) {
+        CFGame cfGame;
+
+        if (spectator == null || player == null || (cfGame = this.games.get(player)) == null)
+            return false;
+        spectator.openInventory(cfGame.getInventory());
+        return true;
+    }
 }
