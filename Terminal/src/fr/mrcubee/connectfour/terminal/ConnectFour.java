@@ -33,7 +33,7 @@ public class ConnectFour {
                 break;
             System.out.println(cfTable.toString());
             if (!cfTable.isWin((byte) 1)) {
-                cfTable.setPlayer(CFBot.getBestColumn(cfTable, 4, (byte) 2, (byte) 1), (byte) 2);
+                cfTable.setPlayer(CFBot.getBestColumn(cfTable, 2, (byte) 2, (byte) 1), (byte) 2);
                 System.out.println(cfTable.toString());
             }
         }

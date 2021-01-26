@@ -6,20 +6,22 @@ package fr.mrcubee.connectfour;
 public class CFPlay {
 
     protected int column;
-    protected int playerIndex;
-    protected final CFPlay lastPlay;
+    public final int playerIndex;
+    public final long searchLevel;
+    public final CFPlay lastPlay;
 
     protected CFPlay(CFPlay lastPlay, int playerCount) {
         this.lastPlay = lastPlay;
-        if (lastPlay != null)
+        if (lastPlay != null) {
             this.playerIndex = (lastPlay.playerIndex + 1) % playerCount;
+            this.searchLevel = lastPlay.searchLevel + 1;
+        } else {
+            this.playerIndex = 0;
+            this.searchLevel = 0;
+        }
     }
 
-    public int getSize() {
-        int result;
-        CFPlay current = this;
-
-        for (result = 1; (current = current.lastPlay) != null; result++);
-        return result;
+    public int getColumn() {
+        return this.column;
     }
 }
