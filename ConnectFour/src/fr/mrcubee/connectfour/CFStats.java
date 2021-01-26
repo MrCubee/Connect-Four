@@ -14,6 +14,6 @@ public class CFStats {
     }
 
     public boolean isBest(CFStats cfStats) {
-        return cfStats.lose < this.lose;
+        return cfStats.lose < this.lose || cfStats.win > this.win;
     }
 }

@@ -68,11 +68,19 @@ public class CFTable {
     }
 
     private boolean isWin(byte playerId, int index, int vColumn, int vRow, int power) {
+        int targetColumn;
+        int targetRow;
+
+        if (power < 1)
+            return true;
+        targetColumn = (index % this.columns) + vColumn;
+        targetRow = (index / this.columns) + vRow;
+        if (targetColumn < 0 || targetColumn >= this.columns || targetRow < 0 || targetRow >= this.rows)
+            return false;
+        index = targetRow * this.columns + targetColumn;
         if (index < 0 || index >= this.table.length || this.table[index] != playerId)
             return false;
-        else if (power < 1)
-            return true;
-        return isWin(playerId, vRow * this.columns + index + vColumn, vColumn, vRow, power - 1);
+        return isWin(playerId, index, vColumn, vRow, power - 1);
     }
 
     private boolean isWin(byte playerId, int index) {
