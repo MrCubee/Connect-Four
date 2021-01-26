@@ -1,5 +1,6 @@
 package fr.mrcubee.connectfour.bukkit.game;
 
+import fr.mrcubee.annotation.spigot.config.Config;
 import org.bukkit.ChatColor;
 import org.bukkit.DyeColor;
 import org.bukkit.Material;
@@ -46,4 +47,11 @@ public class CFSettings {
     public static final ItemStack PLAYER_WOOL = createWoolItem(ChatColor.YELLOW + "You", DyeColor.YELLOW);
     public static final ItemStack BOT_WOOL = createWoolItem(ChatColor.RED + "BOT", DyeColor.RED);
     public static final ItemStack WALL_GLASS = createGlassItem("", DyeColor.GRAY);
+
+    @Config(path = "bot.search_level")
+    private static int searchLevel = 2;
+
+    public static int getSearchLevel() {
+        return searchLevel;
+    }
 }

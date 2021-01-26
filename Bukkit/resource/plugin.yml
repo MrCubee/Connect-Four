@@ -1,5 +1,5 @@
 name: ConnectFour
-version: 1.0
+version: ${pom.version}
 author: MrCubee
 main: fr.mrcubee.connectfour.bukkit.ConnectFour
 commands:
