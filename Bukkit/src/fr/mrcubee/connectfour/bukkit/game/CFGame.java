@@ -69,6 +69,10 @@ public class CFGame {
         inventory = Bukkit.createInventory(null, 54, ChatColor.GOLD + "ConnectFour");
         if (inventory == null)
             return null;
+        for (int i = 0; i < 6; i++) {
+            inventory.setItem(i * 9, CFSettings.WALL_GLASS);
+            inventory.setItem(i * 9 + 8, CFSettings.WALL_GLASS);
+        }
         return new CFGame(player, cfTable, inventory);
     }
 
