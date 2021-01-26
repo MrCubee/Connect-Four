@@ -31,9 +31,8 @@ public class CFGameManager {
         return true;
     }
 
-    public boolean closeGame(Player player) {
-        CFGame cfGame;
 
+    public boolean closeGame(Player player) {
         if (player == null || this.games.remove(player) == null)
             return false;
         player.closeInventory();
@@ -50,17 +49,14 @@ public class CFGameManager {
             return false;
         if (game.isFull()) {
             player.sendMessage(ChatColor.GRAY + "No winners.");
-            closeGame(player);
             return true;
         }
         if (game.isPlayerWin()) {
             player.sendMessage(ChatColor.GOLD + "You win !");
-            closeGame(player);
             return true;
         }
         if (game.isBotWin()) {
             player.sendMessage(ChatColor.RED + "You lose !");
-            closeGame(player);
             return true;
         }
         return false;
@@ -81,7 +77,7 @@ public class CFGameManager {
         }
         if (currentCFGame == null)
             return false;
-        if (!player.equals(currentCFGame.getPlayer()))
+        if (!player.equals(currentCFGame.getPlayer()) || checkGame(currentCFGame))
             return true;
         row = index / 9;
         column = index % 9;
